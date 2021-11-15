@@ -4,8 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:siraba_chariaw/PanneauContent/DetailsPanneauContent.dart';
 
 class DetailsPanneau extends StatefulWidget {
-  const DetailsPanneau({Key? key, required this.nomCategory}) : super(key: key);
-  final String nomCategory;
+  const DetailsPanneau({Key? key, required this.categoryId}) : super(key: key);
+  final int categoryId;
 
   @override
   _DetailsPanneauState createState() => _DetailsPanneauState();
@@ -25,7 +25,7 @@ class _DetailsPanneauState extends State<DetailsPanneau>
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Panneaux"),
+        title: Text("Panneaux ${widget.categoryId}"),
         centerTitle: true,
         backgroundColor: Colors.blue.shade900,
         toolbarHeight: 50,
