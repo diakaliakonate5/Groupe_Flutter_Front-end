@@ -18,8 +18,8 @@ class CardView extends StatefulWidget {
 class _CardViewState extends State<CardView> {
   List allCategories = [];
 
-  var urlCategoryAPi =
-      Uri.parse('http://10.175.48.199:8080/api/category/getAllCategory');
+  var urlCategoryAPi = Uri.parse(
+      'http://groupe-flutter.herokuapp.com/api/category/getAllCategory');
 
   Future getAllCategory() async {
     final response = await http.get(urlCategoryAPi);

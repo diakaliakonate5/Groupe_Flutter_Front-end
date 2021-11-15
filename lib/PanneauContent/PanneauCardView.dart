@@ -1,17 +1,48 @@
 // ignore_for_file: file_names
 
+import 'dart:convert';
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'package:http/http.dart' as http;
 
 class PanneauCardView extends StatefulWidget {
-  const PanneauCardView({Key? key}) : super(key: key);
+  const PanneauCardView({Key? key, required this.categoryId}) : super(key: key);
+  final int categoryId;
 
   @override
   _PanneauCardViewState createState() => _PanneauCardViewState();
 }
 
 class _PanneauCardViewState extends State<PanneauCardView> {
+  dynamic typePanneauByCategory;
+
+  // ignore: prefer_typing_uninitialized_variables
+  late var urlAPi;
+
+  Future getPanneauByCategory() async {
+    final response = await http.get(urlAPi);
+
+    if (response.statusCode == 200) {
+      var listPanneaux = jsonDecode(response.body);
+      print(listPanneaux);
+      setState(() {
+        typePanneauByCategory = listPanneaux;
+      });
+    }
+
+    return typePanneauByCategory;
+  }
+
+  @override
+  void initState() {
+    super.initState();
+
+    urlAPi = Uri.parse(
+        "http://groupe-flutter.herokuapp.com/api/PanneauCategory/${widget.categoryId}");
+    getPanneauByCategory();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

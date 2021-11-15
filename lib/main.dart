@@ -42,7 +42,7 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   int selectedIndex = 0;
-  static List<Widget> pageOptions = <Widget>[CardView(), HomeQuiz()];
+  static List<Widget> pageOptions = <Widget>[const CardView(), HomeQuiz()];
 
   void onTappedIndex(int index) {
     setState(() {
