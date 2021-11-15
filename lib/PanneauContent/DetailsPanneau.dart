@@ -70,7 +70,7 @@ class _DetailsPanneauState extends State<DetailsPanneau>
                   DetailsPanneauContent(imgPath: "assets/images/danger/1.png"),
                   DetailsPanneauContent(imgPath: "assets/images/danger/2.png"),
                   DetailsPanneauContent(imgPath: "assets/images/danger/3.png"),
-                  DetailsPanneauContent(imgPath: "assets/images/danger/4.png"),
+                  DetailsPanneauContent(imgPath: "assets/images/danger/4.png")
                 ],
               ))
         ],
