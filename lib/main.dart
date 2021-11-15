@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:siraba_chariaw/quiz/views/homepage.dart';
 
 import 'Card_View.dart';
 
@@ -41,10 +42,7 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   int selectedIndex = 0;
-  static const List<Widget> pageOptions = <Widget>[
-    CardView(),
-    Text("QUIZ........")
-  ];
+  static List<Widget> pageOptions = <Widget>[CardView(), HomeQuiz()];
 
   void onTappedIndex(int index) {
     setState(() {
