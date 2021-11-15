@@ -52,14 +52,16 @@ class _CardViewState extends State<CardView> {
                 crossAxisCount: 2, crossAxisSpacing: 1.0, mainAxisSpacing: 2),
             itemCount: allCategories.length,
             itemBuilder: (context, index) {
-              return makeCard(allCategories[index]["imageCategory"],
-                  allCategories[index]["nomCategory"]);
+              return makeCard(
+                  allCategories[index]["imageCategory"],
+                  allCategories[index]["nomCategory"],
+                  allCategories[index]["id"]);
             },
           ),
         ));
   }
 
-  Widget makeCard(String imagePath, String nomPanneau) {
+  Widget makeCard(String imagePath, String nomPanneau, int categoryId) {
     return Padding(
       padding: const EdgeInsets.only(top: 15, bottom: 5, left: 20, right: 5),
       child: InkWell(
@@ -68,7 +70,7 @@ class _CardViewState extends State<CardView> {
               context,
               MaterialPageRoute(
                   builder: (context) =>
-                      DetailsPanneau(nomCategory: nomPanneau)));
+                      DetailsPanneau(categoryId: categoryId)));
         },
         child: Container(
           decoration: BoxDecoration(
