@@ -4,6 +4,7 @@ import 'dart:convert';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:siraba_chariaw/ListCategories.dart';
 import 'package:siraba_chariaw/PanneauContent/DetailsPanneau.dart';
 
 import 'package:http/http.dart' as http;
@@ -16,28 +17,10 @@ class CardView extends StatefulWidget {
 }
 
 class _CardViewState extends State<CardView> {
-  List allCategories = [];
-
-  var urlCategoryAPi = Uri.parse(
-      'http://groupe-flutter.herokuapp.com/api/category/getAllCategory');
-
-  Future getAllCategory() async {
-    final response = await http.get(urlCategoryAPi);
-
-    if (response.statusCode == 200) {
-      var list = jsonDecode(response.body);
-      setState(() {
-        allCategories = list;
-      });
-    }
-
-    return allCategories;
-  }
 
   @override
   void initState() {
     super.initState();
-    getAllCategory();
   }
 
   @override
@@ -49,18 +32,15 @@ class _CardViewState extends State<CardView> {
           child: GridView.builder(
             gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                 crossAxisCount: 2, crossAxisSpacing: 1.0, mainAxisSpacing: 2),
-            itemCount: allCategories.length,
+            itemCount: categoryLists.length,
             itemBuilder: (context, index) {
-              return makeCard(
-                  allCategories[index]["imageCategory"],
-                  allCategories[index]["nomCategory"],
-                  allCategories[index]["id"]);
+              return makeCard(categoryLists[index], categoryName[index]);
             },
           ),
         ));
   }
 
-  Widget makeCard(String imagePath, String nomPanneau, int categoryId) {
+  Widget makeCard(String imagePath, String nomPanneau) {
     return Padding(
       padding: const EdgeInsets.only(top: 15, bottom: 5, left: 20, right: 5),
       child: InkWell(
@@ -69,7 +49,7 @@ class _CardViewState extends State<CardView> {
               context,
               MaterialPageRoute(
                   builder: (context) =>
-                      DetailsPanneau(categoryId: categoryId)));
+                      const DetailsPanneau()));
         },
         child: Container(
           decoration: BoxDecoration(
@@ -84,7 +64,7 @@ class _CardViewState extends State<CardView> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Image.network(imagePath, height: 120, width: 120),
+              Image.asset(imagePath, height: 120, width: 120),
               Text(
                 nomPanneau,
                 style: const TextStyle(fontWeight: FontWeight.bold),

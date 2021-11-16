@@ -1,46 +1,21 @@
 // ignore_for_file: file_names
 
-import 'dart:convert';
 import 'dart:ui';
-
 import 'package:flutter/material.dart';
-import 'package:http/http.dart' as http;
 
 class PanneauCardView extends StatefulWidget {
-  const PanneauCardView({Key? key, required this.categoryId}) : super(key: key);
-  final int categoryId;
+  const PanneauCardView({Key? key, required this.imagePanels}) : super(key: key);
+  final List imagePanels;
 
   @override
   _PanneauCardViewState createState() => _PanneauCardViewState();
 }
 
 class _PanneauCardViewState extends State<PanneauCardView> {
-  dynamic typePanneauByCategory;
-
-  // ignore: prefer_typing_uninitialized_variables
-  late var urlAPi;
-
-  Future getPanneauByCategory() async {
-    final response = await http.get(urlAPi);
-
-    if (response.statusCode == 200) {
-      var listPanneaux = jsonDecode(response.body);
-      print(listPanneaux);
-      setState(() {
-        typePanneauByCategory = listPanneaux;
-      });
-    }
-
-    return typePanneauByCategory;
-  }
 
   @override
   void initState() {
     super.initState();
-
-    urlAPi = Uri.parse(
-        "http://groupe-flutter.herokuapp.com/api/PanneauCategory/${widget.categoryId}");
-    getPanneauByCategory();
   }
 
   @override
@@ -61,14 +36,10 @@ class _PanneauCardViewState extends State<PanneauCardView> {
               mainAxisSpacing: 15,
               childAspectRatio: 1.0,
               children: [
-                makeCardForSubPanneau(
-                    "assets/images/danger/1.png", "Panneau 1"),
-                makeCardForSubPanneau(
-                    "assets/images/danger/2.png", "Panneau 2"),
-                makeCardForSubPanneau(
-                    "assets/images/danger/3.png", "Panneau 3"),
-                makeCardForSubPanneau(
-                    "assets/images/danger/4.png", "Panneau 4"),
+                makeCardForSubPanneau(widget.imagePanels[0], "Panneau 1"),
+                makeCardForSubPanneau(widget.imagePanels[1], "Panneau 2"),
+                makeCardForSubPanneau(widget.imagePanels[2], "Panneau 3"),
+                makeCardForSubPanneau(widget.imagePanels[3], "Panneau 4"),
               ],
             ),
           )
@@ -82,7 +53,7 @@ class _PanneauCardViewState extends State<PanneauCardView> {
       padding: const EdgeInsets.only(left: 20, right: 5),
       child: InkWell(
         onTap: () {
-          showDialogFunc(context, "Panneau", "assets/images/danger/1.png", "",
+          showDialogFunc(context, nomPanneau, imagePath, "",
               "dhhhhhhhhhhh");
         },
         child: Container(
@@ -96,8 +67,10 @@ class _PanneauCardViewState extends State<PanneauCardView> {
               ],
               color: Colors.white),
           child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Image.asset(imagePath, height: 100, width: 100),
+              const SizedBox(height: 15),
               Text(
                 nomPanneau,
                 style: const TextStyle(fontWeight: FontWeight.bold),

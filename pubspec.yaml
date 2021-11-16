@@ -77,9 +77,15 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   assets:
-    - assets/images/danger/
+    - assets/voices/danger/
+    - assets/voices/obligation/
+    - assets/voices/interdiction/
+    - assets/voices/indication/
     - assets/images/
-    - assets/
+    - assets/images/dangers/
+    - assets/images/interdictions/
+    - assets/images/obligations/
+    - assets/images/indications/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

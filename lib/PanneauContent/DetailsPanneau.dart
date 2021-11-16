@@ -2,13 +2,14 @@
 
 import 'dart:convert';
 
+import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
+import 'package:siraba_chariaw/ListCategories.dart';
 import 'package:siraba_chariaw/PanneauContent/DetailsPanneauContent.dart';
 import 'package:http/http.dart' as http;
 
 class DetailsPanneau extends StatefulWidget {
-  const DetailsPanneau({Key? key, required this.categoryId}) : super(key: key);
-  final int categoryId;
+  const DetailsPanneau({Key? key}) : super(key: key);
 
   @override
   _DetailsPanneauState createState() => _DetailsPanneauState();
@@ -17,33 +18,12 @@ class DetailsPanneau extends StatefulWidget {
 class _DetailsPanneauState extends State<DetailsPanneau>
     with TickerProviderStateMixin {
   late TabController tabController;
-
-  dynamic category;
-
-  // ignore: prefer_typing_uninitialized_variables
-  late var urlAPi;
-
-  Future getCategoryById() async {
-    final response = await http.get(urlAPi);
-
-    if (response.statusCode == 200) {
-      var oneCategory = jsonDecode(response.body);
-      print(oneCategory);
-      setState(() {
-        category = oneCategory;
-      });
-    }
-
-    return category;
-  }
+  AudioCache player = AudioCache();
 
   @override
   void initState() {
     super.initState();
     tabController = TabController(length: 4, vsync: this);
-    urlAPi = Uri.parse(
-        "http://groupe-flutter.herokuapp.com/api/category/getCategoryById/${widget.categoryId}");
-    getCategoryById();
   }
 
   @override
@@ -80,7 +60,7 @@ class _DetailsPanneauState extends State<DetailsPanneau>
                         TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
               ),
               Tab(
-                child: Text("Signalisations",
+                child: Text("Indications",
                     style:
                         TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
               )
@@ -92,24 +72,17 @@ class _DetailsPanneauState extends State<DetailsPanneau>
               child: TabBarView(
                 controller: tabController,
                 children: [
-                  DetailsPanneauContent(
-                      imgPath: category["imageCategory"],
-                      audio: category["audioCategory"],
-                      description: category["descriptionCategory"],
-                      categoryId: category["id"]),
-                  const Center(
-                    child: Text("Hello 3"),
-                  ),
-                  const Center(
-                    child: Text("Hello 5"),
-                  ),
-                  const Center(
-                    child: Text("Hello 5"),
-                  )
-                  // DetailsPanneauContent(imgPath: "assets/images/danger/1.png"),
-                  // DetailsPanneauContent(imgPath: "assets/images/danger/2.png"),
-                  // DetailsPanneauContent(imgPath: "assets/images/danger/3.png"),
-                  // DetailsPanneauContent(imgPath: "assets/images/danger/4.png")
+                  DetailsPanneauContent(imgPath: categoryLists[0], audio: categoryAudio[0],
+                      description: categoryDescription[0], panels: categoryPanels, idCategory: 0),
+
+                  DetailsPanneauContent(imgPath: categoryLists[1], audio: categoryAudio[1],
+                      description: categoryDescription[1], panels: categoryPanels, idCategory: 1),
+
+                  DetailsPanneauContent(imgPath: categoryLists[2], audio: categoryAudio[2],
+                      description: categoryDescription[2], panels: categoryPanels, idCategory: 2),
+
+                  DetailsPanneauContent(imgPath: categoryLists[3], audio: categoryAudio[3],
+                      description: categoryDescription[3], panels: categoryPanels, idCategory: 3)
                 ],
               ))
         ],
