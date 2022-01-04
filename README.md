@@ -6,7 +6,7 @@ Projet pour les panneaux de circulation
 
 Le taux d'analphabétisation de notre pays étant considérable, il nous ait demandé de créer une application mobile qui va sensibiliser les maliens sur les panneaux de la circulation en vocal.
 
-La spécificité de l'application est que:
+La spécificité de l'application est que :
 
     Intégration du guidage vocal en langue nationale bambara.
     
