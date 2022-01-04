@@ -1,6 +1,6 @@
 # siraba_chariaw
 
-Projet pour les panneaux de circulation
+Application mobile sur les panneaux de circulation en langue nationale bambara.
 
 ## Context du projet
 
