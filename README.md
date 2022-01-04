@@ -2,15 +2,13 @@
 
 Projet pour les panneaux de circulation
 
-## Getting Started
+## Context du projet
 
-This project is a starting point for a Flutter application.
+Le taux d'analphabétisation de notre pays étant considérable, il nous ait demandé de créer une application mobile qui va sensibiliser les maliens sur les panneaux de la circulation en vocal.
 
-A few resources to get you started if this is your first Flutter project:
+La spécificité de l'application est que:
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+    Intégration du guidage vocal en langue nationale bambara.
+    
+    -On doit avoir un ensemble de panneaux et pour chaque icône (ou image ) de panneau de circulation choisit par l’utilisateur sur l’application, il faut un vocal qui sensibilise la dessus.
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
