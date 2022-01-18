@@ -37,22 +37,25 @@ class _DetailsPanneauContentState extends State<DetailsPanneauContent> {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Image.asset(widget.imgPath, height: 100, width: 100),
-        IconButton(
-            onPressed: () {audioCache.play(widget.audio);}, icon: const Icon(Icons.volume_up, size: 30)),
-        Text(
-          widget.description,
-          style: const TextStyle(
-            fontSize: 17,
+    return Padding(
+      padding: const EdgeInsets.only(top: 8.0),
+      child: Column(
+        children: [
+          Image.asset(widget.imgPath, height: 100, width: 100),
+          IconButton(
+              onPressed: () {audioCache.play(widget.audio);}, icon: const Icon(Icons.volume_up, size: 30)),
+          Text(
+            widget.description,
+            style: const TextStyle(
+              fontSize: 17,
+            ),
           ),
-        ),
-        const SizedBox(
-          height: 15,
-        ),
-        Expanded(child: PanneauCardView(imagePanels: widget.panels[widget.idCategory]))
-      ],
+          const SizedBox(
+            height: 15,
+          ),
+          Expanded(child: PanneauCardView(imagePanels: widget.panels[widget.idCategory]))
+        ],
+      ),
     );
   }
 }

@@ -25,7 +25,7 @@ class MyApp extends StatelessWidget {
         // or simply save your changes to "hot reload" in a Flutter IDE).
         // Notice that the counter didn't reset back to zero; the application
         // is not restarted.
-        primarySwatch: Colors.blue,
+        primarySwatch: Colors.deepOrange,
       ),
       home: const HomePage(),
       debugShowCheckedModeBanner: false,
@@ -59,8 +59,8 @@ class _HomePageState extends State<HomePage> {
           style: TextStyle(fontSize: 25),
         ),
         centerTitle: true,
-        backgroundColor: Colors.blue.shade900,
-        toolbarHeight: 50,
+        backgroundColor: Colors.deepOrange,
+        toolbarHeight: 70,
       ),
       body: Center(child: pageOptions.elementAt(selectedIndex)),
       bottomNavigationBar: BottomNavigationBar(

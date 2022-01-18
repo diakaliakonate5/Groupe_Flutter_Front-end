@@ -32,8 +32,8 @@ class _DetailsPanneauState extends State<DetailsPanneau>
       appBar: AppBar(
         title: const Text("Panneaux"),
         centerTitle: true,
-        backgroundColor: Colors.blue.shade900,
-        toolbarHeight: 50,
+        backgroundColor: Colors.deepOrange,
+        toolbarHeight: 70,
       ),
       body: ListView(
         padding: const EdgeInsets.only(top: 20),

@@ -42,7 +42,7 @@ class _CardViewState extends State<CardView> {
 
   Widget makeCard(String imagePath, String nomPanneau) {
     return Padding(
-      padding: const EdgeInsets.only(top: 15, bottom: 5, left: 20, right: 5),
+      padding: const EdgeInsets.only( bottom: 5, left: 10, right: 10),
       child: InkWell(
         onTap: () {
           Navigator.push(
