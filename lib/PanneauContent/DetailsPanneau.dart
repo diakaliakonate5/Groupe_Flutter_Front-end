@@ -41,7 +41,7 @@ class _DetailsPanneauState extends State<DetailsPanneau>
           TabBar(
             controller: tabController,
             isScrollable: true,
-            labelColor: Colors.blue,
+            labelColor: Colors.deepOrange,
             unselectedLabelColor: Colors.grey,
             tabs: const [
               Tab(

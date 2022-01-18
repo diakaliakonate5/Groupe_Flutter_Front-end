@@ -25,7 +25,7 @@ class _HomeQuizState extends State<HomeQuiz> {
               child: Container(
                 padding: EdgeInsets.symmetric(vertical: 12, horizontal: 54),
                 decoration: BoxDecoration(
-                    color: Colors.blue,
+                    color: Colors.deepOrange,
                     borderRadius: BorderRadius.circular(24)),
                 child: Text(
                   "Commencez le quiz ",

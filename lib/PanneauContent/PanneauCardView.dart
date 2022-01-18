@@ -7,6 +7,7 @@ class PanneauCardView extends StatefulWidget {
   const PanneauCardView({Key? key, required this.imagePanels}) : super(key: key);
   final List imagePanels;
 
+
   @override
   _PanneauCardViewState createState() => _PanneauCardViewState();
 }
@@ -36,10 +37,10 @@ class _PanneauCardViewState extends State<PanneauCardView> {
               mainAxisSpacing: 15,
               childAspectRatio: 1.0,
               children: [
-                makeCardForSubPanneau(widget.imagePanels[0], "Panneau 1"),
-                makeCardForSubPanneau(widget.imagePanels[1], "Panneau 2"),
-                makeCardForSubPanneau(widget.imagePanels[2], "Panneau 3"),
-                makeCardForSubPanneau(widget.imagePanels[3], "Panneau 4"),
+                makeCardForSubPanneau(widget.imagePanels[0], "Panneau 1", "rtyioz"),
+                makeCardForSubPanneau(widget.imagePanels[1], "Panneau 2", "ppssdoo"),
+                makeCardForSubPanneau(widget.imagePanels[2], "Panneau 3", "dsdjjsj"),
+                makeCardForSubPanneau(widget.imagePanels[3], "Panneau 4", "ghfjft"),
               ],
             ),
           )
@@ -48,13 +49,13 @@ class _PanneauCardViewState extends State<PanneauCardView> {
     );
   }
 
-  Widget makeCardForSubPanneau(String imagePath, String nomPanneau) {
+  Widget makeCardForSubPanneau(String imagePath, String nomPanneau, String description) {
     return Padding(
       padding: const EdgeInsets.only(left: 20, right: 5),
       child: InkWell(
         onTap: () {
           showDialogFunc(context, nomPanneau, imagePath, "",
-              "dhhhhhhhhhhh");
+              description);
         },
         child: Container(
           decoration: BoxDecoration(
