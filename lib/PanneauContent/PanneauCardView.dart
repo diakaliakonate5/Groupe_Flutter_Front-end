@@ -4,8 +4,10 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 
 class PanneauCardView extends StatefulWidget {
-  const PanneauCardView({Key? key, required this.imagePanels}) : super(key: key);
+  const PanneauCardView({Key? key, required this.imagePanels, required this.panelsDesc, required this.panelsAudios}) : super(key: key);
   final List imagePanels;
+  final List panelsDesc;
+  final List panelsAudios;
 
 
   @override
@@ -37,10 +39,10 @@ class _PanneauCardViewState extends State<PanneauCardView> {
               mainAxisSpacing: 15,
               childAspectRatio: 1.0,
               children: [
-                makeCardForSubPanneau(widget.imagePanels[0], "Panneau 1", "rtyioz"),
-                makeCardForSubPanneau(widget.imagePanels[1], "Panneau 2", "ppssdoo"),
-                makeCardForSubPanneau(widget.imagePanels[2], "Panneau 3", "dsdjjsj"),
-                makeCardForSubPanneau(widget.imagePanels[3], "Panneau 4", "ghfjft"),
+                makeCardForSubPanneau(widget.imagePanels[0], "Panneau 1", widget.panelsDesc[0]),
+                makeCardForSubPanneau(widget.imagePanels[1], "Panneau 2", widget.panelsDesc[1]),
+                makeCardForSubPanneau(widget.imagePanels[2], "Panneau 3", widget.panelsDesc[2]),
+                makeCardForSubPanneau(widget.imagePanels[3], "Panneau 4", widget.panelsDesc[3]),
               ],
             ),
           )
@@ -136,7 +138,6 @@ class _PanneauCardViewState extends State<PanneauCardView> {
                       alignment: Alignment.center,
                       child: Text(
                         description,
-                        maxLines: 3,
                         style: TextStyle(fontSize: 15, color: Colors.black),
                         textAlign: TextAlign.center,
                       ),

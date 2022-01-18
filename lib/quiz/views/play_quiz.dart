@@ -188,14 +188,14 @@ class _PlayQuizState extends State<PlayQuiz>
             //  imageUrl: questions[index].getImageUrl(),
             //  height: 200,
             //),
-            Image(
+            /*Image(
                 height: 200,
                 image: AssetImage(
                   questions[index].getImageUrl(),
-                )),
+                )),*/
             Spacer(),
             IconButton(
-              icon: Icon(Icons.play_circle),
+              icon: const Icon(Icons.play_circle),
               iconSize: 60.0,
               onPressed: () {
                 setState(() {

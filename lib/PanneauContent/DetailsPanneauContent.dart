@@ -11,12 +11,15 @@ class DetailsPanneauContent extends StatefulWidget {
       required this.audio,
       required this.description,
       required this.panels,
-      required this.idCategory})
-      : super(key: key);
+      required this.idCategory,
+      required this.panelsDesc,
+      required this.panelsAudios}) : super(key: key);
   final String imgPath;
   final String description;
   final String audio;
   final List panels;
+  final List panelsDesc;
+  final List panelsAudios;
   final int idCategory;
 
   @override
@@ -53,7 +56,7 @@ class _DetailsPanneauContentState extends State<DetailsPanneauContent> {
           const SizedBox(
             height: 15,
           ),
-          Expanded(child: PanneauCardView(imagePanels: widget.panels[widget.idCategory]))
+          Expanded(child: PanneauCardView(imagePanels: widget.panels[widget.idCategory], panelsDesc: widget.panelsDesc[widget.idCategory], panelsAudios: widget.panelsAudios[widget.idCategory]))
         ],
       ),
     );

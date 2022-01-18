@@ -18,3 +18,8 @@ List categoryAudio = ["voices/danger/Danger.mp3", "voices/obligation/obligation.
 
 ///List of panels by category
 List categoryPanels = [dangerPanels, obligationPanels, interdictionPanels, indicationPanels];
+
+///List of panels descriptions by category
+List categoryPanelsDesc = [dangerSubPanelsDescriptions, obligationSubPanelsDescription, interdictionSubPanelsDescription, indicationSubPanelsDescription];
+
+List categoryPanelsAudios = [dangerSubPanelsAudio, obligationsSubPanelsAudio, interdictionSubPanelsAudio, indicationSubPanelsAudio];

@@ -73,16 +73,16 @@ class _DetailsPanneauState extends State<DetailsPanneau>
                 controller: tabController,
                 children: [
                   DetailsPanneauContent(imgPath: categoryLists[0], audio: categoryAudio[0],
-                      description: categoryDescription[0], panels: categoryPanels, idCategory: 0),
+                      description: categoryDescription[0], panels: categoryPanels, panelsDesc: categoryPanelsDesc, panelsAudios: categoryPanelsAudios, idCategory: 0),
 
                   DetailsPanneauContent(imgPath: categoryLists[1], audio: categoryAudio[1],
-                      description: categoryDescription[1], panels: categoryPanels, idCategory: 1),
+                      description: categoryDescription[1], panels: categoryPanels, panelsDesc: categoryPanelsDesc, panelsAudios: categoryPanelsAudios, idCategory: 1),
 
                   DetailsPanneauContent(imgPath: categoryLists[2], audio: categoryAudio[2],
-                      description: categoryDescription[2], panels: categoryPanels, idCategory: 2),
+                      description: categoryDescription[2], panels: categoryPanels, panelsDesc: categoryPanelsDesc, panelsAudios: categoryPanelsAudios, idCategory: 2),
 
                   DetailsPanneauContent(imgPath: categoryLists[3], audio: categoryAudio[3],
-                      description: categoryDescription[3], panels: categoryPanels, idCategory: 3)
+                      description: categoryDescription[3], panels: categoryPanels, panelsDesc: categoryPanelsDesc, panelsAudios: categoryPanelsAudios, idCategory: 3)
                 ],
               ))
         ],
