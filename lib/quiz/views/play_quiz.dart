@@ -119,7 +119,7 @@ class _PlayQuizState extends State<PlayQuiz>
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
-            SizedBox(
+            const SizedBox(
               height: 20,
             ),
             Container(
@@ -131,32 +131,32 @@ class _PlayQuizState extends State<PlayQuiz>
                     children: <Widget>[
                       Text(
                         "${index + 1}/${questions.length}",
-                        style: TextStyle(
+                        style: const TextStyle(
                             fontSize: 25, fontWeight: FontWeight.w500),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         width: 10,
                       ),
-                      Text(
+                      const Text(
                         "Question",
                         style: TextStyle(
                             fontSize: 17, fontWeight: FontWeight.w300),
                       )
                     ],
                   ),
-                  Spacer(),
+                  const Spacer(),
                   Row(
                     crossAxisAlignment: CrossAxisAlignment.end,
                     children: <Widget>[
                       Text(
                         "$points",
-                        style: TextStyle(
+                        style: const TextStyle(
                             fontSize: 25, fontWeight: FontWeight.w500),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         width: 10,
                       ),
-                      Text(
+                      const Text(
                         "Points",
                         style: TextStyle(
                             fontSize: 17, fontWeight: FontWeight.w300),
@@ -166,18 +166,18 @@ class _PlayQuizState extends State<PlayQuiz>
                 ],
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 50,
             ),
             Text(
               questions[index].getQuestion() + "?",
               textAlign: TextAlign.center,
-              style: TextStyle(
+              style: const TextStyle(
                   color: Colors.black87,
                   fontSize: 20,
                   fontWeight: FontWeight.w500),
             ),
-            SizedBox(
+            const SizedBox(
               height: 20,
             ),
             Container(
@@ -193,20 +193,20 @@ class _PlayQuizState extends State<PlayQuiz>
                 image: AssetImage(
                   questions[index].getImageUrl(),
                 )),*/
-            Spacer(),
+            const Spacer(),
             IconButton(
               icon: const Icon(Icons.play_circle),
               iconSize: 60.0,
               onPressed: () {
                 setState(() {
                   final player = AudioCache();
-                  String audio_uri = questions[index].getAudioUrl();
-                  player.play(audio_uri);
+                  String audioUri = questions[index].getAudioUrl();
+                  player.play(audioUri);
                 });
               },
             ),
             Container(
-              padding: EdgeInsets.symmetric(horizontal: 30),
+              padding: const EdgeInsets.symmetric(horizontal: 30),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: <Widget>[
